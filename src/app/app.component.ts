@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { render } from "creditcardpayments/creditCardPayments";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'paypal-project';
+
+  constructor(){
+    render({
+      id: "#myPaypalButtons",
+      currency: "USD",
+      value: "100.00",
+        onApprove:(details) => {
+          alert("Transaction successfulll")
+          console.log(details);
+
+        },
+    })
+  }
 }
